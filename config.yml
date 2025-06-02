@@ -1,4 +1,4 @@
-name: wf-ci
+name: develop
 
 on:
   pull_request:
@@ -25,3 +25,7 @@ jobs:
          echo "even name : ${{github.actior}}"
          echo "even name : ${{github.repository}}"
          echo "even name : ${{github.event}}"
+      - name: Lint html files
+         run:npx htmlhint "**/*.html"
+      - name: Lint css files
+         run:npx stylelint "**/*.css"
